@@ -37,3 +37,4 @@ logstash:
     - "5515:5515"
   links:
     - elasticsearch
+    - elasticsearch:es
