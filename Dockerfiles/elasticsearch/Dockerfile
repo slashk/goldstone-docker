@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM solinea/centos-jdk-7:0.1
+FROM solinea/goldstone-centos-jdk-7
 MAINTAINER Luke Heidecke <luke@solinea.com>
 
 RUN yum -y update; yum clean all
