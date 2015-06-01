@@ -5,3 +5,4 @@ TO-DO List
 - automate build tag 'latest', pull TAG from build command
 - ci
 - lock down ports to internal/external (ports vs exposed)
+- split out goldstone configs from image config
