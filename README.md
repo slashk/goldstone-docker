@@ -1,14 +1,17 @@
 Goldstone Dockerfiles and Compose Configuration
 ===============================================
 
-# Build a docker image
-docker build -t docker-registry/image-name:version .
+Docker image definitions and configurations for https://github.com/Solinea/goldstone-server.
 
-For example (from the directory containing Dockerfile):
-docker build -t solinea/logstash:1.4 .
-docker tag IMAGEID solinea/logstash:latest
+## Run Docker Compose
+Docker compose allows you to run the entire envirnment, including all links between containers.
+To install on Mac OSX, run `brew install docker-compose`.
+From the root of repo run `docker-compose up`.
 
-# Testing
+## Test Image Builds
+`docker build -t docker-registry/image-name:latest`
+*The latest tag is required so that docker-compose will work*
+
+## Testing
 Run `rake test` to run all Dockerfile image tests.
-
-Note: If using docker-machine, services will be exposed at the IP `docker-machine ip`
+*Note*: If using docker-machine, services will be exposed at the IP `docker-machine ip`
