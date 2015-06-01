@@ -14,7 +14,7 @@ COPY patterns /etc/logstash/patterns
 
 expose 5514 5515
 
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/jre-1.7.0/
 
 CMD ["/opt/logstash/bin/logstash", \
   "agent", \

@@ -7,6 +7,6 @@ RUN yum -y update; yum clean all
 
 RUN yum install -y java-1.7.0-openjdk; yum clean all
 
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/jre-1.7.0/
 
 CMD ["bash"]
