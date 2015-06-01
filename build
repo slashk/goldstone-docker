@@ -7,10 +7,7 @@ for dir in ./Dockerfiles/*
 do
   pushd $dir &> /dev/null
     appname=`basename $dir`
-    apptag=`head -1 VERSION`
 
-    docker build -t ${org}/${appname}:${apptag} .
-    #echo $ID
-    #docker tag ${ID} ${org}/${appname}:latest
+    docker build -t ${org}/${appname}:latest
   popd &> /dev/null
 done
