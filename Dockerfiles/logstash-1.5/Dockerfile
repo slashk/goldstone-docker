@@ -7,7 +7,7 @@ RUN yum -y update; yum clean all
 
 RUN rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
 COPY logstash.repo /etc/yum.repos.d/logstash.repo
-RUN yum -y install logstash logstash-contrib; yum clean all
+RUN yum -y install logstash; yum clean all
 
 #COPY start_logstash /usr/local/bin/start_logstash
 COPY conf.d/* /etc/logstash/conf.d/
