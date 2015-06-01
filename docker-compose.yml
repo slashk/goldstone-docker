@@ -1,0 +1,40 @@
+# Goldstone Docker Compose Configuration
+
+# elasticsearch container
+elasticsearch:
+  image: solinea/elasticsearch-1.5
+  ports:
+    - "9200"
+    - "9300"
+
+# PostgreSQL
+postgres:
+  image: openshift/postgresql-92-centos7
+  ports:
+    - "5432:5432"
+  env_file: environment/pgsql.env
+  volumes:
+    - /var/lib/pgsql/data
+
+# Redis container
+redis:
+  image: solinea/redis-2.8
+  ports:
+    - "6379:6379"
+
+# Apache Container
+# apache/mod_wsgi
+apache:
+  image: centos/httpd
+  ports:
+    - "80:80"
+
+# logstash container
+logstash:
+  image: solinea/logstash-1.5
+  ports:
+    - "5514:5514"
+    - "5515:5515"
+  links:
+    - elasticsearch
+    - elasticsearch:es

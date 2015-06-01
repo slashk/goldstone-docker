@@ -1,0 +1,3 @@
+Goldstone Dockerfile for Celery
+===============================
+
