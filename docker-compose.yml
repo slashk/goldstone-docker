@@ -2,7 +2,7 @@
 
 # elasticsearch container
 elasticsearch:
-  image: solinea/elasticsearch-1.5
+  image: solinea/goldstone-elasticsearch
   ports:
     - "9200"
     - "9300"
@@ -18,7 +18,7 @@ postgres:
 
 # Redis container
 redis:
-  image: solinea/redis-2.8
+  image: solinea/goldstone-redis
   ports:
     - "6379:6379"
 
@@ -31,7 +31,7 @@ apache:
 
 # logstash container
 logstash:
-  image: solinea/logstash-1.5
+  image: solinea/goldstone-logstash
   ports:
     - "5514:5514"
     - "5515:5515"
