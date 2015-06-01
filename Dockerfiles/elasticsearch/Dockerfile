@@ -9,6 +9,7 @@ RUN rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
 COPY elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo
 RUN yum -y install elasticsearch; yum clean all
 
+COPY elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
 COPY logging.yml /etc/elasticsearch/logging.yml
 
 VOLUME ["/var/lib/elasticsearch"]
