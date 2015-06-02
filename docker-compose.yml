@@ -4,8 +4,8 @@
 elasticsearch:
   image: solinea/goldstone-elasticsearch
   ports:
-    - "9200"
-    - "9300"
+    - "9200:9200"
+    - "9300:9300"
 
 # PostgreSQL
 postgres:
@@ -35,6 +35,8 @@ logstash:
   ports:
     - "5514:5514"
     - "5515:5515"
+    - "5516/udp:5516/udp"
+    - "5515/udp:5515/udp"
   links:
     - elasticsearch
     - elasticsearch:es

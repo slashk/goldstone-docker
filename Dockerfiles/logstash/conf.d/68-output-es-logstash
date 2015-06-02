@@ -13,8 +13,8 @@
 # limitations under the License.
 
 output {
+    stdout { codec => rubydebug }
     if [type] == "syslog" {
-        # stdout { codec => rubydebug }
         elasticsearch {
             host => es
             port => 9200
