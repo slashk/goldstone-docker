@@ -8,6 +8,6 @@ do
   pushd $dir &> /dev/null
     appname=`basename $dir`
 
-    docker build -t ${org}/${appname}:latest
+    docker build -t ${org}/${appname}:latest .
   popd &> /dev/null
 done

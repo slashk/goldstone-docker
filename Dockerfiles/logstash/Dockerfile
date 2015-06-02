@@ -18,7 +18,7 @@ ENV LS_HOME /opt/logstash/
 
 RUN /opt/logstash/bin/plugin install logstash-filter-translate
 
-expose 5514 5515 5516/udp 5517/udp
+EXPOSE 5514 5515 5516/udp 5517/udp
 
 CMD ["/opt/logstash/bin/logstash", \
   "agent", \

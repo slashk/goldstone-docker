@@ -8,6 +8,7 @@ RUN yum -y update; yum clean all
 RUN rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
 COPY elasticsearch.repo /etc/yum.repos.d/elasticsearch.repo
 RUN yum -y install elasticsearch; yum clean all
+RUN /usr/share/elasticsearch/bin/plugin install mobz/elasticsearch-head
 
 COPY logging.yml /etc/elasticsearch/logging.yml
 
