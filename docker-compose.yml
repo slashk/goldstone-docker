@@ -2,7 +2,7 @@
 
 # Elasticsearch Container
 elasticsearch:
-  image: elasticsearch:1.5
+  image: solinea/goldstone-elasticsearch
   volumes:
     - config/elasticsearch:/usr/share/elasticsearch/config
     # Mount a local volume for data
@@ -13,7 +13,7 @@ elasticsearch:
 
 # PostgreSQL Container
 postgres:
-  image: postgres:9.4
+  image: solinea/goldstone-postgres
   env_file: config/postgres/pgsql.env
   volumes_from:
     - pgdvc
@@ -42,7 +42,7 @@ redisdvc:
 
 # Logstash Container
 logstash:
-  image: solinea/logstash
+  image: solinea/goldstone-logstash
   command: logstash -f /logstash/conf.d -w 1
   volumes:
     - config/logstash/conf.d:/logstash/conf.d
@@ -51,7 +51,6 @@ logstash:
     - "5514:5514"
     - "5515:5515"
     - "5516:5516/udp"
-    - "5517:5517/udp"
   links:
     - elasticsearch
     - elasticsearch:es
