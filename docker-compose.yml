@@ -2,11 +2,14 @@
 
 # elasticsearch container
 elasticsearch:
-  image: solinea/goldstone-elasticsearch
+  image: elasticsearch:1.5
   ports:
     - "9200:9200"
     - "9300:9300"
-
+  volumes:
+    - "$PWD/config/es":/usr/share/elasticsearch/config
+    # Mount a local volume for data
+    #- "$PWD/data/es":/usr/share/elasticsearch/data
 # PostgreSQL
 postgres:
   image: openshift/postgresql-92-centos7
