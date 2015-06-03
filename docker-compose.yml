@@ -20,17 +20,25 @@ postgres:
   ports:
     - "5432:5432"
 
-# PostgreSQL Data Container
+# PostgreSQL Data Volume Container
 pgdvc:
   image: solinea/postgres-data:latest
   volumes:
     - /var/lib/postgresql/data
 
-# Redis container
-#redis:
-#  image: solinea/goldstone-redis
-#  ports:
-#    - "6379:6379"
+# Redis Container
+redis:
+  image: redis:latest
+  volumes_from:
+    - redisdvc
+  ports:
+    - "6379:6379"
+
+# Redis Data Volume Container
+redisdvc:
+  image: solinea/redis-data
+  volumes:
+    - /data
 
 # Apache Container
 # apache/mod_wsgi
