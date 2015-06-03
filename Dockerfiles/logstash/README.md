@@ -1,6 +1,7 @@
 Goldstone Dockerfile for Logstash
 ===============================
 
-Based on solinea/goldstone-centos-jdk-7
+Based on logstash:1.5 repo.
 
-Logstash 1.5
+Installs the following plugins:
+- translate
