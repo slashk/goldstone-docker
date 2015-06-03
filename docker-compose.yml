@@ -17,8 +17,8 @@ postgres:
   env_file: config/postgres/pgsql.env
   volumes_from:
     - pgdvc
-#ports:
-#- "5432:5432"
+  ports:
+    - "5432:5432"
 
 # PostgreSQL Data Container
 pgdvc:
