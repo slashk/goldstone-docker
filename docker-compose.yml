@@ -40,13 +40,6 @@ redisdvc:
   volumes:
     - /data
 
-# Apache Container
-# apache/mod_wsgi
-#apache:
-#  image: centos/httpd
-#  ports:
-#    - "80:80"
-
 # logstash container
 logstash:
   image: solinea/logstash
