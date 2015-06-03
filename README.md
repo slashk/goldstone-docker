@@ -3,10 +3,20 @@ Goldstone Dockerfiles and Compose Configuration
 
 Docker image definitions and configurations for https://github.com/Solinea/goldstone-server.
 
+## Components
+
+* Elasticsearch >=1.5
+* Logstash >=1.5
+* PostgreSQL >=9.4
+
 ## Run Docker Compose
 Docker compose allows you to run the entire envirnment, including all links between containers.
+
 To install on Mac OSX, run `brew install docker-compose`.
-From the root of repo run `docker-compose up`.
+
+Then execute `docker-compose up` from the directory containing docker-compose.yml.
+  
+To run in detached mode, execute `docker-compose up -d`.
 
 ## Test Image Builds
 `docker build -t docker-registry/image-name:latest`
