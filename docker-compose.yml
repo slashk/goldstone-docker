@@ -55,3 +55,17 @@ logstash:
   links:
     - elasticsearch
     - elasticsearch:es
+
+# Celery Worker Container
+celery1:
+  image: celery
+  links:
+    - rabbit1:rabbit
+
+# RabbitMQ Container
+rabbit1:
+  image: rabbitmq:3-management
+  hostname: rabbit1
+  ports:
+    - "5672:5672"
+    - "15672:15672"
