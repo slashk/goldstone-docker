@@ -40,7 +40,7 @@ redisdvc:
   volumes:
     - /data
 
-# logstash container
+# Logstash Container
 logstash:
   image: solinea/logstash
   command: logstash -f /logstash/conf.d -w 1
