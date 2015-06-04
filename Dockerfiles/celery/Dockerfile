@@ -15,6 +15,11 @@ USER celery
 RUN virtualenv /env
 COPY requirements.txt /app/requirements.txt
 RUN /env/bin/pip install -r requirements.txt
-ENV PATH /usr/local/bin:/usr/bin:/bin:/env/bin
+ENV PATH /env/bin:/usr/local/bin:/usr/bin:/bin
 
-CMD ["celery", "worker", "--loglevel=info"]
+CMD ["celery", \
+  "worker", \
+  "-A", "celery.py", \
+  "-Q", "default", \
+  "-n", "default@%h", \
+  "--loglevel=info"]
