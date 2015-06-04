@@ -22,7 +22,7 @@ postgres:
 
 # PostgreSQL Data Volume Container
 pgdvc:
-  image: solinea/postgres-data:latest
+  image: solinea/goldstone-postgres-data:latest
   volumes:
     - /var/lib/postgresql/data
 
@@ -36,7 +36,7 @@ redis:
 
 # Redis Data Volume Container
 redisdvc:
-  image: solinea/redis-data
+  image: solinea/goldstone-redis-data
   volumes:
     - /data
 
