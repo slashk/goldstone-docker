@@ -2,7 +2,7 @@
 
 # Elasticsearch Container
 elasticsearch:
-  image: solinea/goldstone-elasticsearch
+  image: solinea/goldstone-elasticsearch:latest
   volumes:
     - config/elasticsearch:/usr/share/elasticsearch/config
     # Mount a local volume for data
@@ -13,7 +13,7 @@ elasticsearch:
 
 # PostgreSQL Container
 postgres:
-  image: solinea/goldstone-postgres
+  image: solinea/goldstone-postgres:latest
   env_file: config/postgres/pgsql.env
   volumes_from:
     - pgdvc
@@ -42,7 +42,7 @@ redisdvc:
 
 # Logstash Container
 logstash:
-  image: solinea/goldstone-logstash
+  image: solinea/goldstone-logstash:latest
   command: logstash -f /logstash/conf.d -w 1
   volumes:
     - config/logstash/conf.d:/logstash/conf.d
@@ -56,15 +56,23 @@ logstash:
     - elasticsearch:es
 
 # Celery Worker Container
-celery1:
-  image: celery
+celery:
+  image: solinea/celery:latest
+  volumes_from:
+    - celeryappdvc
   links:
-    - rabbit1:rabbit
+    - redis
+
+# Celery App Data Volume Container
+celeryappdvc:
+  image: solinea/celery-appdata:latest
+  volumes:
+    - goldstone:/app
 
 # RabbitMQ Container
-rabbit1:
-  image: rabbitmq:3-management
-  hostname: rabbit1
-  ports:
-    - "5672:5672"
-    - "15672:15672"
+#rabbit1:
+#  image: rabbitmq:3-management
+#  hostname: rabbit1
+#  ports:
+#    - "5672:5672"
+#    - "15672:15672"
