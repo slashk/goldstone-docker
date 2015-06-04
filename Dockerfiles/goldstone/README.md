@@ -1,0 +1,1 @@
+For testing, place this in the root directory of goldstone-server.
