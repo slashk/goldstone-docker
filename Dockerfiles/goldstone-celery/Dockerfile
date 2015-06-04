@@ -4,10 +4,8 @@ FROM solinea/goldstone
 MAINTAINER Luke Heidecke <luke@solinea.com>
 
 # Configure environment
-USER celery
-ENV PATH /env/bin:/usr/local/bin:/usr/bin:/bin
-RUN virtualenv /env
-
+USER www-data
+RUN . /app/bin/activate 
 CMD ["celery", \
   "worker", \
   "-A", "celery.py", \
