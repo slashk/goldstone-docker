@@ -56,18 +56,21 @@ logstash:
     - elasticsearch:es
 
 # Celery Worker Container
-celery:
-  image: solinea/celery:latest
-  volumes_from:
-    - celeryappdvc
-  links:
-    - redis
+#celery:
+#image: solinea/goldstone:latest
+#command: celery worker -A celery.py -Q default -n default@%h --loglevel=info
+#links:
+#- redis
 
-# Celery App Data Volume Container
-celeryappdvc:
-  image: solinea/celery-appdata:latest
-  volumes:
-    - goldstone:/app
+# Goldstone Django App Container
+#django:
+#image: solinea/goldstone:latest
+#links:
+#- postgres
+
+# Static Web Content Container
+#static:
+#image: solinea/goldstone:latest
 
 # RabbitMQ Container
 #rabbit1:
